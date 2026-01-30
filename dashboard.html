@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clawdbot Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .section {
+      background: #1a1a1a;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid #333;
+    }
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #fff;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+    }
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .status-item {
+      background: #252525;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #333;
+    }
+    .status-item label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
+    .status-item .value {
+      font-size: 14px;
+      color: #fff;
+      font-weight: 500;
+    }
+    .status-running { color: #4ade80; }
+    .status-stopped { color: #ef4444; }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #333;
+    }
+    th {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #888;
+      font-weight: 500;
+    }
+    td {
+      font-size: 14px;
+      color: #e0e0e0;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+    button {
+      background: #252525;
+      color: #e0e0e0;
+      border: 1px solid #444;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    button:hover {
+      background: #333;
+      border-color: #555;
+    }
+    button.active {
+      background: #4ade80;
+      color: #000;
+      border-color: #4ade80;
+    }
+    
+    .timestamp {
+      color: #888;
+      font-size: 12px;
+    }
+    .event-type {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .event-type.user_message { background: #3b82f6; color: #fff; }
+    .event-type.assistant_message { background: #8b5cf6; color: #fff; }
+    .event-type.tool_call { background: #f59e0b; color: #000; }
+    .event-type.system { background: #6b7280; color: #fff; }
+    .event-type.other { background: #374151; color: #fff; }
+    
+    .last-updated {
+      text-align: right;
+      font-size: 12px;
+      color: #666;
+      margin-top: 20px;
+    }
+    
+    .refresh-btn {
+      background: #4ade80;
+      color: #000;
+      border: none;
+    }
+    .refresh-btn:hover {
+      background: #22c55e;
+    }
+    .auth-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #0f0f0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .auth-box {
+      background: #1a1a1a;
+      padding: 40px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      max-width: 400px;
+      width: 100%;
+    }
+    .auth-box h2 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .auth-box input {
+      width: 100%;
+      padding: 12px;
+      background: #252525;
+      border: 1px solid #444;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .auth-box input:focus {
+      outline: none;
+      border-color: #4ade80;
+    }
+    .auth-box button {
+      width: 100%;
+      padding: 12px;
+      background: #4ade80;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .auth-box button:hover {
+      background: #22c55e;
+    }
+    .auth-error {
+      color: #ef4444;
+      font-size: 13px;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .content-hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-overlay" class="auth-overlay">
+    <div class="auth-box">
+      <h2>Dashboard Access</h2>
+      <input type="password" id="password-input" placeholder="Enter password" autocomplete="off">
+      <button onclick="checkPassword()">Access Dashboard</button>
+      <div id="auth-error" class="auth-error"></div>
+    </div>
+  </div>
+  
+  <div class="container content-hidden" id="dashboard-content">
+    <h1>Clawdbot Dashboard</h1>
+    
+    <div class="section">
+      <h2>Gateway Health</h2>
+      <div class="status-grid">
+        <div class="status-item">
+          <label>Status</label>
+          <div class="value" id="gateway-status">Loading...</div>
+        </div>
+        <div class="status-item">
+          <label>Primary Model</label>
+          <div class="value" id="primary-model">Loading...</div>
+        </div>
+        <div class="status-item">
+          <label>Fallback Models</label>
+          <div class="value" id="fallback-models">Loading...</div>
+        </div>
+        <div class="status-item">
+          <label>Auth Providers</label>
+          <div class="value" id="auth-providers">Loading...</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>Active Sessions</h2>
+      <table id="sessions-table">
+        <thead>
+          <tr>
+            <th>Session Key</th>
+            <th>Model</th>
+            <th>Total Tokens</th>
+            <th>Last Activity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4" style="text-align:center;color:#666;">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="section">
+      <h2>Activity Log</h2>
+      <div class="filter-buttons">
+        <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+        <button class="active" onclick="filterActivity(60)">1h</button>
+        <button onclick="filterActivity(240)">4h</button>
+        <button onclick="filterActivity(480)">8h</button>
+        <button onclick="filterActivity(1440)">24h</button>
+      </div>
+      <table id="activity-table">
+        <thead>
+          <tr>
+            <th>Time (CT)</th>
+            <th>Session</th>
+            <th>Type</th>
+            <th>Summary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4" style="text-align:center;color:#666;">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="last-updated">
+      Last updated: <span id="last-updated">Never</span>
+    </div>
+  </div>
+
+  <script>
+    const DASHBOARD_PASSWORD = '6695';
+    let currentData = null;
+    let currentFilter = 60; // default 1h
+    
+    function checkPassword() {
+      const input = document.getElementById('password-input');
+      const errorDiv = document.getElementById('auth-error');
+      
+      if (input.value === DASHBOARD_PASSWORD) {
+        document.getElementById('auth-overlay').style.display = 'none';
+        document.getElementById('dashboard-content').classList.remove('content-hidden');
+        loadData();
+        // Start auto-refresh after auth
+        setInterval(loadData, 60000);
+      } else {
+        errorDiv.textContent = 'Incorrect password';
+        input.value = '';
+        input.focus();
+      }
+    }
+    
+    // Allow Enter key to submit
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.getElementById('password-input');
+      input.focus();
+      input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          checkPassword();
+        }
+      });
+    });
+    
+    function formatTimestamp(ts) {
+      const date = new Date(ts);
+      return date.toLocaleString('en-US', { 
+        timeZone: 'America/Chicago',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    }
+    
+    function timeAgo(ts) {
+      const now = Date.now();
+      const diff = now - ts;
+      const minutes = Math.floor(diff / 60000);
+      const hours = Math.floor(minutes / 60);
+      const days = Math.floor(hours / 24);
+      
+      if (days > 0) return `${days}d ago`;
+      if (hours > 0) return `${hours}h ago`;
+      if (minutes > 0) return `${minutes}m ago`;
+      return 'just now';
+    }
+    
+    function loadData() {
+      fetch('data.json?' + Date.now())
+        .then(r => r.json())
+        .then(data => {
+          currentData = data;
+          renderDashboard();
+          document.getElementById('last-updated').textContent = formatTimestamp(Date.now());
+        })
+        .catch(e => {
+          console.error('Failed to load data:', e);
+        });
+    }
+    
+    function renderDashboard() {
+      if (!currentData) return;
+      
+      // Gateway health
+      const status = currentData.gateway.status;
+      const statusEl = document.getElementById('gateway-status');
+      statusEl.textContent = status;
+      statusEl.className = 'value status-' + status;
+      
+      document.getElementById('primary-model').textContent = currentData.gateway.model.primary;
+      document.getElementById('fallback-models').textContent = currentData.gateway.model.fallbacks;
+      document.getElementById('auth-providers').textContent = currentData.gateway.auth.providers.join(', ') || 'none';
+      
+      // Sessions table
+      const sessionsBody = document.getElementById('sessions-table').querySelector('tbody');
+      if (currentData.sessions.length === 0) {
+        sessionsBody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#666;">No active sessions</td></tr>';
+      } else {
+        sessionsBody.innerHTML = currentData.sessions.map(s => `
+          <tr>
+            <td>${s.key}</td>
+            <td>${s.model}</td>
+            <td>${s.totalTokens.toLocaleString()}</td>
+            <td>${s.lastActivity ? timeAgo(s.lastActivity) : 'n/a'}</td>
+          </tr>
+        `).join('');
+      }
+      
+      // Activity log (filtered)
+      filterActivity(currentFilter);
+    }
+    
+    function filterActivity(minutes) {
+      currentFilter = minutes;
+      
+      // Update active button
+      document.querySelectorAll('.filter-buttons button:not(.refresh-btn)').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event?.target?.classList?.add('active');
+      
+      if (!currentData) return;
+      
+      const cutoff = Date.now() - minutes * 60 * 1000;
+      const filtered = currentData.activityLog.filter(a => a.timestamp > cutoff);
+      
+      const activityBody = document.getElementById('activity-table').querySelector('tbody');
+      if (filtered.length === 0) {
+        activityBody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#666;">No activity in this time range</td></tr>';
+      } else {
+        activityBody.innerHTML = filtered.slice(0, 100).map(a => `
+          <tr>
+            <td class="timestamp">${formatTimestamp(a.timestamp)}</td>
+            <td>${a.sessionKey}</td>
+            <td><span class="event-type ${a.eventType}">${a.eventType.replace('_', ' ')}</span></td>
+            <td>${a.summary}</td>
+          </tr>
+        `).join('');
+      }
+    }
+    
+  </script>
+</body>
+</html>
