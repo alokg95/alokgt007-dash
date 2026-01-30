@@ -1,13 +1,17 @@
 {
-  "timestamp": 1769761981483,
+  "timestamp": 1769762068344,
   "gateway": {
-    "status": "stopped",
+    "status": "running",
     "model": {
-      "primary": "unknown",
-      "fallbacks": "none"
+      "primary": "anthropic/claude-sonnet-4-5",
+      "fallbacks": "anthropic/claude-opus-4-5, openai/gpt-5.2"
     },
     "auth": {
-      "providers": []
+      "providers": [
+        "anthropic",
+        "google",
+        "openai"
+      ]
     }
   },
   "sessions": [
@@ -15,7 +19,7 @@
       "key": "19130c20-0af",
       "model": "gpt-5.2",
       "totalTokens": 0,
-      "lastActivity": 1769761977231
+      "lastActivity": 1769762064506
     },
     {
       "key": "86e75344-788",
@@ -25,6 +29,144 @@
     }
   ],
   "activityLog": [
+    {
+      "timestamp": 1769762064506,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769762060944,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit result"
+    },
+    {
+      "timestamp": 1769762060913,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit"
+    },
+    {
+      "timestamp": 1769762053020,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769762053010,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769762047683,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769762047669,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769762042415,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769762038454,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769762029475,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769762029005,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769762020040,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769762020021,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769762014658,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769762014643,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769762002216,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769762002200,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769761995415,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769761995402,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769761989730,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769761989718,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769761982904,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769761982893,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
     {
       "timestamp": 1769761977231,
       "sessionKey": "19130c20-0af",
@@ -1097,7 +1239,7 @@
       "timestamp": 1769760596550,
       "sessionKey": "19130c20-0af",
       "eventType": "user_message",
-      "summary": "System: [2026-01-30 08:09:56 UTC] Slack DM from Alok: ghp_2PYfLmzS9HP0gMiEGBGJKj"
+      "summary": "System: [2026-01-30 08:09:56 UTC] Slack DM from Alok: [GitHub token redacted]\n\n["
     },
     {
       "timestamp": 1769760596538,

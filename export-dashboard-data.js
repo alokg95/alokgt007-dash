@@ -107,14 +107,20 @@ if (fs.existsSync(agentDir)) {
           // Extract actual message from wrapped format
           const msg = entry.type === 'message' && entry.message ? entry.message : entry;
           
-          // User messages
+          // User messages (with secret redaction)
           if (msg.role === 'user') {
+            let text = '';
             if (typeof msg.content === 'string') {
-              summary = msg.content.substring(0, 80);
+              text = msg.content;
             } else if (Array.isArray(msg.content)) {
               const textPart = msg.content.find(c => c.type === 'text');
-              summary = textPart ? textPart.text.substring(0, 80) : 'user message';
+              text = textPart ? textPart.text : '';
             }
+            // Redact secrets
+            text = text.replace(/ghp_[a-zA-Z0-9]{36}/g, '[GitHub token redacted]');
+            text = text.replace(/sk-ant-[a-zA-Z0-9_-]{95,}/g, '[Anthropic key redacted]');
+            text = text.replace(/xoxb-[0-9-]{30,}/g, '[Slack bot token redacted]');
+            summary = text.substring(0, 80);
             eventType = 'user_message';
           }
           // Assistant messages
