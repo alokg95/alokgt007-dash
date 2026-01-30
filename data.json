@@ -1,5 +1,5 @@
 {
-  "timestamp": 1769761081959,
+  "timestamp": 1769761141518,
   "gateway": {
     "status": "stopped",
     "model": {
@@ -16,9 +16,111 @@
       "model": "gpt-5.2",
       "totalTokens": 0,
       "lastActivity": 1769761016245
+    },
+    {
+      "key": "86e75344-788",
+      "model": "claude-sonnet-4-5",
+      "totalTokens": 0,
+      "lastActivity": 1769761139067
     }
   ],
   "activityLog": [
+    {
+      "timestamp": 1769761139067,
+      "sessionKey": "86e75344-788",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769761139007,
+      "sessionKey": "86e75344-788",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769761136798,
+      "sessionKey": "86e75344-788",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769761136739,
+      "sessionKey": "86e75344-788",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769761133330,
+      "sessionKey": "86e75344-788",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769761133270,
+      "sessionKey": "86e75344-788",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769761130839,
+      "sessionKey": "86e75344-788",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769761130776,
+      "sessionKey": "86e75344-788",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769761128304,
+      "sessionKey": "86e75344-788",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769761128240,
+      "sessionKey": "86e75344-788",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769761123568,
+      "sessionKey": "86e75344-788",
+      "eventType": "user_message",
+      "summary": "[cron:1dc60b59-37c4-45bd-8a21-777c41150fc5 Fireflies sync + alert (every 30m)] Y"
+    },
+    {
+      "timestamp": 1769761123567,
+      "sessionKey": "86e75344-788",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
+    {
+      "timestamp": 1769761123558,
+      "sessionKey": "86e75344-788",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
+    {
+      "timestamp": 1769761123558,
+      "sessionKey": "86e75344-788",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
+    {
+      "timestamp": 1769761123558,
+      "sessionKey": "86e75344-788",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
+    {
+      "timestamp": 1769761123554,
+      "sessionKey": "86e75344-788",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
     {
       "timestamp": 1769761016245,
       "sessionKey": "19130c20-0af",
