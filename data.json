@@ -1,17 +1,13 @@
 {
-  "timestamp": 1769759935955,
+  "timestamp": 1769760661736,
   "gateway": {
-    "status": "running",
+    "status": "stopped",
     "model": {
-      "primary": "anthropic/claude-sonnet-4-5",
-      "fallbacks": "anthropic/claude-opus-4-5, openai/gpt-5.2"
+      "primary": "unknown",
+      "fallbacks": "none"
     },
     "auth": {
-      "providers": [
-        "anthropic",
-        "google",
-        "openai"
-      ]
+      "providers": []
     }
   },
   "sessions": [
@@ -19,10 +15,364 @@
       "key": "19130c20-0af",
       "model": "gpt-5.2",
       "totalTokens": 0,
-      "lastActivity": 1769759932146
+      "lastActivity": 1769760644310
     }
   ],
   "activityLog": [
+    {
+      "timestamp": 1769760644310,
+      "sessionKey": "19130c20-0af",
+      "eventType": "assistant_message",
+      "summary": "✅ **Cron job set up** — dashboard data will auto-export and push to GitHub every"
+    },
+    {
+      "timestamp": 1769760637111,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760637098,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760633061,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760633046,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760623905,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760623755,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760616714,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760616578,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760612013,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760611588,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760607465,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760607449,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760602540,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760602331,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760596550,
+      "sessionKey": "19130c20-0af",
+      "eventType": "user_message",
+      "summary": "System: [2026-01-30 08:09:56 UTC] Slack DM from Alok: ghp_2PYfLmzS9HP0gMiEGBGJKj"
+    },
+    {
+      "timestamp": 1769760596538,
+      "sessionKey": "19130c20-0af",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
+    {
+      "timestamp": 1769760434542,
+      "sessionKey": "19130c20-0af",
+      "eventType": "assistant_message",
+      "summary": "I can do it all for you — I'm already on the gateway machine.\n\n**What you need t"
+    },
+    {
+      "timestamp": 1769760417596,
+      "sessionKey": "19130c20-0af",
+      "eventType": "user_message",
+      "summary": "System: [2026-01-30 08:06:57 UTC] Slack DM from Alok: i dont have ssh setup give"
+    },
+    {
+      "timestamp": 1769760417590,
+      "sessionKey": "19130c20-0af",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
+    {
+      "timestamp": 1769760309819,
+      "sessionKey": "19130c20-0af",
+      "eventType": "assistant_message",
+      "summary": "Run them on the **gateway machine** (the EC2 instance where Clawdbot is running "
+    },
+    {
+      "timestamp": 1769760309556,
+      "sessionKey": "19130c20-0af",
+      "eventType": "assistant_message",
+      "summary": "Run them on the **gateway machine** (the EC2 instance where Clawdbot is running "
+    },
+    {
+      "timestamp": 1769760302010,
+      "sessionKey": "19130c20-0af",
+      "eventType": "user_message",
+      "summary": "[Queued messages while agent was busy]\n\n---\nQueued #1\n[Slack Alok +34s 2026-01-3"
+    },
+    {
+      "timestamp": 1769760301998,
+      "sessionKey": "19130c20-0af",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
+    {
+      "timestamp": 1769760301818,
+      "sessionKey": "19130c20-0af",
+      "eventType": "assistant_message",
+      "summary": "✅ **Password protection added** — password is \"6695\"\n\nDashboard now shows a pass"
+    },
+    {
+      "timestamp": 1769760288964,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760288952,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760285832,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit result"
+    },
+    {
+      "timestamp": 1769760285822,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit"
+    },
+    {
+      "timestamp": 1769760277963,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760277951,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760274732,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760274720,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760271470,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit result"
+    },
+    {
+      "timestamp": 1769760271457,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit"
+    },
+    {
+      "timestamp": 1769760267901,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit result"
+    },
+    {
+      "timestamp": 1769760267885,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit"
+    },
+    {
+      "timestamp": 1769760261061,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit result"
+    },
+    {
+      "timestamp": 1769760261051,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit"
+    },
+    {
+      "timestamp": 1769760253899,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit result"
+    },
+    {
+      "timestamp": 1769760253880,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "edit"
+    },
+    {
+      "timestamp": 1769760238091,
+      "sessionKey": "19130c20-0af",
+      "eventType": "user_message",
+      "summary": "System: [2026-01-30 08:03:57 UTC] Slack DM from Alok: 1. yeah lets pw protect wi"
+    },
+    {
+      "timestamp": 1769760238086,
+      "sessionKey": "19130c20-0af",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
+    {
+      "timestamp": 1769760205293,
+      "sessionKey": "19130c20-0af",
+      "eventType": "assistant_message",
+      "summary": "Good point. GitHub Pages on a public repo = anyone can visit it.\n\n## Options for"
+    },
+    {
+      "timestamp": 1769760183345,
+      "sessionKey": "19130c20-0af",
+      "eventType": "user_message",
+      "summary": "System: [2026-01-30 08:03:02 UTC] Slack DM from Alok: but i dont want a publicly"
+    },
+    {
+      "timestamp": 1769760183339,
+      "sessionKey": "19130c20-0af",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
+    {
+      "timestamp": 1769760105857,
+      "sessionKey": "19130c20-0af",
+      "eventType": "assistant_message",
+      "summary": "GitHub CLI isn't set up on this machine, so here's the manual flow (takes 2 minu"
+    },
+    {
+      "timestamp": 1769760095991,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769760095967,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769760091392,
+      "sessionKey": "19130c20-0af",
+      "eventType": "user_message",
+      "summary": "System: [2026-01-30 08:01:31 UTC] Slack DM from Alok: my github username is alok"
+    },
+    {
+      "timestamp": 1769760091383,
+      "sessionKey": "19130c20-0af",
+      "eventType": "other",
+      "summary": "unknown event"
+    },
+    {
+      "timestamp": 1769759975427,
+      "sessionKey": "19130c20-0af",
+      "eventType": "assistant_message",
+      "summary": "**✅ Dashboard complete** — all files committed to `/home/ubuntu/clawd/dashboard/"
+    },
+    {
+      "timestamp": 1769759961774,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769759961763,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769759957949,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
+    {
+      "timestamp": 1769759957939,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec"
+    },
+    {
+      "timestamp": 1769759953138,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "write result"
+    },
+    {
+      "timestamp": 1769759953123,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "write"
+    },
+    {
+      "timestamp": 1769759935971,
+      "sessionKey": "19130c20-0af",
+      "eventType": "tool_call",
+      "summary": "exec result"
+    },
     {
       "timestamp": 1769759932146,
       "sessionKey": "19130c20-0af",
