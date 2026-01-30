@@ -12,159 +12,195 @@
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0f0f0f;
+      background: #1a1d2e;
       color: #e0e0e0;
-      padding: 20px;
+      padding: 30px;
     }
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-    .section {
-      background: #1a1a1a;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      border: 1px solid #333;
-    }
-    .section h2 {
-      font-size: 18px;
-      margin-bottom: 15px;
-      color: #fff;
-      border-bottom: 1px solid #333;
-      padding-bottom: 10px;
-    }
-    .status-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-    }
-    .status-item {
-      background: #252525;
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #333;
-    }
-    .status-item label {
-      display: block;
-      font-size: 11px;
-      text-transform: uppercase;
-      color: #888;
-      margin-bottom: 5px;
-      letter-spacing: 0.5px;
-    }
-    .status-item .value {
-      font-size: 14px;
-      color: #fff;
-      font-weight: 500;
-    }
-    .status-running { color: #4ade80; }
-    .status-stopped { color: #ef4444; }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      text-align: left;
-      padding: 10px;
-      border-bottom: 1px solid #333;
-    }
-    th {
-      font-size: 12px;
-      text-transform: uppercase;
-      color: #888;
-      font-weight: 500;
-    }
-    td {
-      font-size: 14px;
-      color: #e0e0e0;
-    }
-    tr:last-child td {
-      border-bottom: none;
-    }
-    
-    .filter-buttons {
+    .header {
       display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
     }
-    button {
-      background: #252525;
-      color: #e0e0e0;
-      border: 1px solid #444;
-      padding: 8px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 13px;
-      transition: all 0.2s;
+    .header h1 {
+      font-size: 32px;
+      background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
     }
-    button:hover {
-      background: #333;
-      border-color: #555;
-    }
-    button.active {
-      background: #4ade80;
-      color: #000;
-      border-color: #4ade80;
-    }
-    
-    .timestamp {
+    .header .last-updated {
       color: #888;
-      font-size: 12px;
+      font-size: 14px;
     }
-    .event-type {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 11px;
+    
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .card {
+      background: #262b3d;
+      border-radius: 16px;
+      padding: 30px;
+      border: 1px solid #2d3548;
+    }
+    
+    .big-status {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+      color: #fff;
+      min-height: 240px;
+    }
+    
+    .big-status.error {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    }
+    
+    .big-status-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    
+    .big-status-value {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    
+    .big-status-label {
+      font-size: 18px;
+      opacity: 0.9;
       font-weight: 500;
-      text-transform: uppercase;
-    }
-    .event-type.user_message { background: #3b82f6; color: #fff; }
-    .event-type.assistant_message { background: #8b5cf6; color: #fff; }
-    .event-type.tool_call { background: #f59e0b; color: #000; }
-    .event-type.system { background: #6b7280; color: #fff; }
-    .event-type.other { background: #374151; color: #fff; }
-    
-    .last-updated {
-      text-align: right;
-      font-size: 12px;
-      color: #666;
-      margin-top: 20px;
     }
     
-    .refresh-btn {
-      background: #4ade80;
-      color: #000;
-      border: none;
+    .stat-card {
+      display: flex;
+      flex-direction: column;
     }
-    .refresh-btn:hover {
-      background: #22c55e;
+    
+    .stat-card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      color: #a855f7;
+      margin-bottom: 20px;
+      font-weight: 600;
     }
+    
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: #1e2330;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border-left: 3px solid transparent;
+    }
+    
+    .stat-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .stat-item.active {
+      border-left-color: #f97316;
+    }
+    
+    .stat-item.completed {
+      border-left-color: #4ade80;
+    }
+    
+    .stat-item.pending {
+      border-left-color: #eab308;
+    }
+    
+    .stat-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+    
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .insights {
+      margin-top: 30px;
+    }
+    
+    .insights-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .insight-item {
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+    
+    .insight-item.blue {
+      background: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    
+    .insight-item.orange {
+      background: rgba(251, 146, 60, 0.15);
+      color: #fdba74;
+      border: 1px solid rgba(251, 146, 60, 0.3);
+    }
+    
+    .insight-item.green {
+      background: rgba(74, 222, 128, 0.15);
+      color: #86efac;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+    
     .auth-overlay {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: #0f0f0f;
+      background: #1a1d2e;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 9999;
     }
     .auth-box {
-      background: #1a1a1a;
+      background: #262b3d;
       padding: 40px;
-      border-radius: 8px;
-      border: 1px solid #333;
+      border-radius: 16px;
+      border: 1px solid #2d3548;
       max-width: 400px;
       width: 100%;
     }
@@ -175,29 +211,29 @@
     .auth-box input {
       width: 100%;
       padding: 12px;
-      background: #252525;
-      border: 1px solid #444;
-      border-radius: 6px;
+      background: #1e2330;
+      border: 1px solid #2d3548;
+      border-radius: 8px;
       color: #fff;
       font-size: 14px;
       margin-bottom: 15px;
     }
     .auth-box input:focus {
       outline: none;
-      border-color: #4ade80;
+      border-color: #a855f7;
     }
     .auth-box button {
       width: 100%;
       padding: 12px;
-      background: #4ade80;
-      color: #000;
+      background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+      color: #fff;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: 500;
       cursor: pointer;
     }
     .auth-box button:hover {
-      background: #22c55e;
+      opacity: 0.9;
     }
     .auth-error {
       color: #ef4444;
@@ -207,6 +243,89 @@
     }
     .content-hidden {
       display: none;
+    }
+    
+    .activity-log {
+      margin-top: 30px;
+    }
+    
+    .activity-log-title {
+      font-size: 20px;
+      color: #f59e0b;
+      margin-bottom: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    button.filter-btn {
+      background: #1e2330;
+      color: #d1d5db;
+      border: 1px solid #2d3548;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    
+    button.filter-btn:hover {
+      background: #262b3d;
+      border-color: #a855f7;
+    }
+    
+    button.filter-btn.active {
+      background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+      color: #fff;
+      border-color: transparent;
+    }
+    
+    .activity-item {
+      background: #262b3d;
+      padding: 14px 18px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      display: grid;
+      grid-template-columns: 140px 200px 120px 1fr;
+      gap: 15px;
+      align-items: center;
+      font-size: 13px;
+      border: 1px solid #2d3548;
+    }
+    
+    .activity-time {
+      color: #888;
+      font-family: 'Courier New', monospace;
+    }
+    
+    .activity-session {
+      color: #a855f7;
+      font-weight: 500;
+    }
+    
+    .activity-type {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .activity-type.user_message { background: #3b82f6; color: #fff; }
+    .activity-type.assistant_message { background: #8b5cf6; color: #fff; }
+    .activity-type.tool_call { background: #f59e0b; color: #000; }
+    .activity-type.system { background: #6b7280; color: #fff; }
+    
+    .activity-summary {
+      color: #d1d5db;
     }
   </style>
 </head>
@@ -221,80 +340,76 @@
   </div>
   
   <div class="container content-hidden" id="dashboard-content">
-    <h1>Clawdbot Dashboard</h1>
+    <div class="header">
+      <h1>💚 System Health</h1>
+      <div class="last-updated">Last updated: <span id="last-updated">Never</span></div>
+    </div>
     
-    <div class="section">
-      <h2>Gateway Health</h2>
-      <div class="status-grid">
-        <div class="status-item">
-          <label>Status</label>
-          <div class="value" id="gateway-status">Loading...</div>
+    <div class="top-grid">
+      <div class="card big-status" id="big-status">
+        <div class="big-status-icon">🎉</div>
+        <div class="big-status-value" id="status-value">100%</div>
+        <div class="big-status-label" id="status-label">Gateway Running</div>
+      </div>
+      
+      <div class="card stat-card">
+        <div class="stat-card-title">👥 Sessions</div>
+        <div class="stat-item">
+          <div class="stat-label">📊 Total Active</div>
+          <div class="stat-value" id="sessions-total">0</div>
         </div>
-        <div class="status-item">
-          <label>Primary Model</label>
-          <div class="value" id="primary-model">Loading...</div>
+        <div class="stat-item active">
+          <div class="stat-label">🔥 Last Hour</div>
+          <div class="stat-value" id="sessions-recent">0</div>
         </div>
-        <div class="status-item">
-          <label>Fallback Models</label>
-          <div class="value" id="fallback-models">Loading...</div>
+        <div class="stat-item completed">
+          <div class="stat-label">✅ Model</div>
+          <div class="stat-value" id="sessions-model" style="font-size:14px;text-align:right;">-</div>
         </div>
-        <div class="status-item">
-          <label>Auth Providers</label>
-          <div class="value" id="auth-providers">Loading...</div>
+      </div>
+      
+      <div class="card stat-card">
+        <div class="stat-card-title">📋 Activity</div>
+        <div class="stat-item pending">
+          <div class="stat-label">⏱️ Last 1h</div>
+          <div class="stat-value" id="activity-1h">0</div>
+        </div>
+        <div class="stat-item active">
+          <div class="stat-label">🔧 Tool Calls</div>
+          <div class="stat-value" id="activity-tools">0</div>
+        </div>
+        <div class="stat-item completed">
+          <div class="stat-label">💬 Messages</div>
+          <div class="stat-value" id="activity-messages">0</div>
         </div>
       </div>
     </div>
     
-    <div class="section">
-      <h2>Active Sessions</h2>
-      <table id="sessions-table">
-        <thead>
-          <tr>
-            <th>Session Key</th>
-            <th>Model</th>
-            <th>Total Tokens</th>
-            <th>Last Activity</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td colspan="4" style="text-align:center;color:#666;">Loading...</td></tr>
-        </tbody>
-      </table>
+    <div class="insights">
+      <div class="insights-title">💡 Quick Insights</div>
+      <div id="insights-container">
+        <div class="insight-item blue">Loading...</div>
+      </div>
     </div>
     
-    <div class="section">
-      <h2>Activity Log</h2>
+    <div class="activity-log">
+      <div class="activity-log-title">📝 Recent Activity</div>
       <div class="filter-buttons">
-        <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
-        <button class="active" onclick="filterActivity(60)">1h</button>
-        <button onclick="filterActivity(240)">4h</button>
-        <button onclick="filterActivity(480)">8h</button>
-        <button onclick="filterActivity(1440)">24h</button>
+        <button class="filter-btn active" onclick="filterActivity(60)">1h</button>
+        <button class="filter-btn" onclick="filterActivity(240)">4h</button>
+        <button class="filter-btn" onclick="filterActivity(480)">8h</button>
+        <button class="filter-btn" onclick="filterActivity(1440)">24h</button>
       </div>
-      <table id="activity-table">
-        <thead>
-          <tr>
-            <th>Time (CT)</th>
-            <th>Session</th>
-            <th>Type</th>
-            <th>Summary</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td colspan="4" style="text-align:center;color:#666;">Loading...</td></tr>
-        </tbody>
-      </table>
-    </div>
-    
-    <div class="last-updated">
-      Last updated: <span id="last-updated">Never</span>
+      <div id="activity-container">
+        <div class="insight-item blue">Loading...</div>
+      </div>
     </div>
   </div>
 
   <script>
     const DASHBOARD_PASSWORD = '6695';
     let currentData = null;
-    let currentFilter = 60; // default 1h
+    let currentFilter = 60;
     
     function checkPassword() {
       const input = document.getElementById('password-input');
@@ -304,7 +419,6 @@
         document.getElementById('auth-overlay').style.display = 'none';
         document.getElementById('dashboard-content').classList.remove('content-hidden');
         loadData();
-        // Start auto-refresh after auth
         setInterval(loadData, 60000);
       } else {
         errorDiv.textContent = 'Incorrect password';
@@ -313,14 +427,11 @@
       }
     }
     
-    // Allow Enter key to submit
     document.addEventListener('DOMContentLoaded', function() {
       const input = document.getElementById('password-input');
       input.focus();
       input.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          checkPassword();
-        }
+        if (e.key === 'Enter') checkPassword();
       });
     });
     
@@ -331,8 +442,7 @@
         month: 'short',
         day: 'numeric',
         hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
+        minute: '2-digit'
       });
     }
     
@@ -340,13 +450,11 @@
       const now = Date.now();
       const diff = now - ts;
       const minutes = Math.floor(diff / 60000);
+      if (minutes < 1) return 'just now';
+      if (minutes < 60) return `${minutes}m ago`;
       const hours = Math.floor(minutes / 60);
-      const days = Math.floor(hours / 24);
-      
-      if (days > 0) return `${days}d ago`;
-      if (hours > 0) return `${hours}h ago`;
-      if (minutes > 0) return `${minutes}m ago`;
-      return 'just now';
+      if (hours < 24) return `${hours}h ago`;
+      return `${Math.floor(hours / 24)}d ago`;
     }
     
     function loadData() {
@@ -357,72 +465,84 @@
           renderDashboard();
           document.getElementById('last-updated').textContent = formatTimestamp(Date.now());
         })
-        .catch(e => {
-          console.error('Failed to load data:', e);
-        });
+        .catch(e => console.error('Failed to load data:', e));
     }
     
     function renderDashboard() {
       if (!currentData) return;
       
-      // Gateway health
-      const status = currentData.gateway.status;
-      const statusEl = document.getElementById('gateway-status');
-      statusEl.textContent = status;
-      statusEl.className = 'value status-' + status;
+      // Big status card
+      const statusEl = document.getElementById('big-status');
+      const statusValue = document.getElementById('status-value');
+      const statusLabel = document.getElementById('status-label');
       
-      document.getElementById('primary-model').textContent = currentData.gateway.model.primary;
-      document.getElementById('fallback-models').textContent = currentData.gateway.model.fallbacks;
-      document.getElementById('auth-providers').textContent = currentData.gateway.auth.providers.join(', ') || 'none';
-      
-      // Sessions table
-      const sessionsBody = document.getElementById('sessions-table').querySelector('tbody');
-      if (currentData.sessions.length === 0) {
-        sessionsBody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#666;">No active sessions</td></tr>';
+      if (currentData.gateway.status === 'running') {
+        statusEl.className = 'card big-status';
+        statusValue.textContent = '✓';
+        statusLabel.textContent = 'Gateway Running';
       } else {
-        sessionsBody.innerHTML = currentData.sessions.map(s => `
-          <tr>
-            <td>${s.key}</td>
-            <td>${s.model}</td>
-            <td>${s.totalTokens.toLocaleString()}</td>
-            <td>${s.lastActivity ? timeAgo(s.lastActivity) : 'n/a'}</td>
-          </tr>
-        `).join('');
+        statusEl.className = 'card big-status error';
+        statusValue.textContent = '✗';
+        statusLabel.textContent = 'Gateway Stopped';
       }
       
-      // Activity log (filtered)
+      // Sessions stats
+      document.getElementById('sessions-total').textContent = currentData.sessions.length;
+      const recentSessions = currentData.sessions.filter(s => s.lastActivity && s.lastActivity > Date.now() - 3600000).length;
+      document.getElementById('sessions-recent').textContent = recentSessions;
+      document.getElementById('sessions-model').textContent = currentData.gateway.model.primary.split('/')[1] || currentData.gateway.model.primary;
+      
+      // Activity stats
+      const oneHourAgo = Date.now() - 3600000;
+      const recentActivity = currentData.activityLog.filter(a => a.timestamp > oneHourAgo);
+      document.getElementById('activity-1h').textContent = recentActivity.length;
+      document.getElementById('activity-tools').textContent = recentActivity.filter(a => a.eventType === 'tool_call').length;
+      document.getElementById('activity-messages').textContent = recentActivity.filter(a => a.eventType === 'user_message' || a.eventType === 'assistant_message').length;
+      
+      // Quick insights
+      const insights = [];
+      if (recentSessions > 0) {
+        insights.push({ color: 'blue', text: `🔥 ${recentSessions} session${recentSessions > 1 ? 's' : ''} active in the last hour` });
+      }
+      if (currentData.activityLog.length > 0) {
+        const lastActivity = currentData.activityLog[0];
+        insights.push({ color: 'orange', text: `⏱️ Last activity: ${timeAgo(lastActivity.timestamp)}` });
+      }
+      insights.push({ color: 'green', text: `🎯 Primary model: ${currentData.gateway.model.primary}` });
+      
+      const insightsContainer = document.getElementById('insights-container');
+      insightsContainer.innerHTML = insights.map(i => 
+        `<div class="insight-item ${i.color}">${i.text}</div>`
+      ).join('');
+      
+      // Activity log
       filterActivity(currentFilter);
     }
     
     function filterActivity(minutes) {
       currentFilter = minutes;
-      
-      // Update active button
-      document.querySelectorAll('.filter-buttons button:not(.refresh-btn)').forEach(btn => {
-        btn.classList.remove('active');
-      });
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
       event?.target?.classList?.add('active');
       
       if (!currentData) return;
       
       const cutoff = Date.now() - minutes * 60 * 1000;
-      const filtered = currentData.activityLog.filter(a => a.timestamp > cutoff);
+      const filtered = currentData.activityLog.filter(a => a.timestamp > cutoff).slice(0, 50);
       
-      const activityBody = document.getElementById('activity-table').querySelector('tbody');
+      const container = document.getElementById('activity-container');
       if (filtered.length === 0) {
-        activityBody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#666;">No activity in this time range</td></tr>';
+        container.innerHTML = '<div class="insight-item blue">No activity in this time range</div>';
       } else {
-        activityBody.innerHTML = filtered.slice(0, 100).map(a => `
-          <tr>
-            <td class="timestamp">${formatTimestamp(a.timestamp)}</td>
-            <td>${a.sessionKey}</td>
-            <td><span class="event-type ${a.eventType}">${a.eventType.replace('_', ' ')}</span></td>
-            <td>${a.summary}</td>
-          </tr>
+        container.innerHTML = filtered.map(a => `
+          <div class="activity-item">
+            <div class="activity-time">${formatTimestamp(a.timestamp)}</div>
+            <div class="activity-session">${a.sessionKey}</div>
+            <div><span class="activity-type ${a.eventType}">${a.eventType.replace('_', ' ')}</span></div>
+            <div class="activity-summary">${a.summary}</div>
+          </div>
         `).join('');
       }
     }
-    
   </script>
 </body>
 </html>
